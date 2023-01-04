@@ -15,9 +15,27 @@ public struct AboutMeModule: JXModule {
 
     public func register(with registry: JXRegistry) throws {
         try registry.register(JXSwiftUI())
-
+        try registry.registerBridge(for: Info.self, namespace: namespace)
         if let localURL = Self.localURL {
-            //try registry.registerModuleScript(resource: "/PetStoreView.js", root: localURL, namespace: namespace)
+            try registry.registerModuleScript(resource: "/ContentView.js", root: localURL, namespace: namespace)
         }
+    }
+
+    public func initialize(in context: JXContext) throws {
+        try context.global.setProperty("information", information)
+    }
+}
+
+extension Info: JXStaticBridging {
+    static func jxBridge() throws -> JXBridge {
+        JXBridgeBuilder(type: Info.self)
+            .var.image { \.image }
+            .var.name { \.name }
+            .var.story { \.story }
+            .var.hobbies { \.hobbies }
+            .var.foods { \.foods }
+            .var.colors { \.colors }
+            .var.funFacts { \.funFacts }
+            .bridge
     }
 }

@@ -15,6 +15,8 @@ public struct AboutMeView: View {
     }
 
     public var body: some View {
-        ContentView()
+        JXView(context: context) { context in
+            try context.new("aboutme.ContentView")
+        }
     }
 }
