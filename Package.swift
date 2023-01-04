@@ -2,26 +2,23 @@
 import PackageDescription
 
 let package = Package(
-    name: "PetStore",
+    name: "AboutMe",
     defaultLocalization: "en",
     platforms: [ .macOS(.v12), .iOS(.v15) ],
     products: [
-        .library(name: "PetStore", targets: ["PetStore"]),
+        .library(name: "AboutMe", targets: ["AboutMe"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/jectivex/JXBridge.git", from: "0.1.14"),
-        .package(url: "https://github.com/jectivex/JXSwiftUI", from: "0.1.7"),
+        .package(url: "https://github.com/jectivex/JXBridge.git", from: "0.1.15"),
+        .package(url: "https://github.com/jectivex/JXSwiftUI", from: "0.1.12"),
     ],
     targets: [
-        .target(name: "PetStore", dependencies: [
+        .target(name: "AboutMe", dependencies: [
             .product(name: "JXBridge", package: "JXBridge"),
             .product(name: "JXSwiftUI", package: "JXSwiftUI"),
         ], resources: [
-            .process("Resources"),
             .copy("jxmodule"),
         ]),
-        .testTarget(
-            name: "PetStoreTests",
-            dependencies: ["PetStore"]),
     ]
 )
+
