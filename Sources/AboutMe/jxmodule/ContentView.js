@@ -10,19 +10,19 @@ class ContentView extends View {
         return TabView([
             new HomeView()
                 .tabItem(
-                    Label({label: "Home", systemImage: "person"})
+                    Label("Home", {systemImage: "person"})
                 ),
             new StoryView()
                 .tabItem(
-                    Label({label: "Story", systemImage: "book"})
+                    Label("Story", {systemImage: "book"})
                 ),
             new FavoritesView()
                 .tabItem(
-                    Label({label: "Favorites", systemImage: "star"})
+                    Label("Favorites", {systemImage: "star"})
                 ),
             new FunFactsView()
                 .tabItem(
-                    Label({label: "Fun Facts", systemImage: "hand.thumbsup"})
+                    Label("Fun Facts", {systemImage: "hand.thumbsup"})
                 )
         ])
     }

@@ -9,8 +9,8 @@ class FunFactsView extends View {
     body() {
         return VStack([
             Text("Fun Facts")
-                .font("largeTitle"),
-                // .fontWeight("bold")
+                .font("largeTitle")
+                .fontWeight("bold"),
             Text(this.state.funFact)
                 .padding()
                 .font("title")

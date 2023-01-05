@@ -5,7 +5,7 @@ class FavoritesView extends View {
         return VStack([
             Text("Favorites")
                 .font("largeTitle")
-                // .fontWeight(.bold)
+                .fontWeight("bold")
                 .padding(["bottom"], 40),
 
             Text("Hobbies")
@@ -39,7 +39,7 @@ class FavoritesView extends View {
                 ForEach(information.colors, (color) => {
                     return color
                         .frame({width: 70, height: 70})
-                        // .cornerRadius(10)
+                        .cornerRadius(10)
                 })
             ])
             .padding()

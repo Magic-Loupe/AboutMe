@@ -5,9 +5,8 @@ class StoryView extends View {
         return VStack([
             Text("My Story")
                 .font("largeTitle")
-                // .fontWeight("bold")
+                .fontWeight("bold")
                 .padding(),
-
             ScrollView(
                 Text(information.story)
                     .font("body")
@@ -31,7 +30,6 @@ struct StoryView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding()
-
             ScrollView {
                 Text(information.story)
                     .font(.body)
