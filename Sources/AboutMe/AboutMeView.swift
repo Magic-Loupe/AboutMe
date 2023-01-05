@@ -3,20 +3,13 @@ import JXSwiftUI
 import SwiftUI
 
 public struct AboutMeView: View {
-    let context: JXContext
-
-    public init(context: JXContext = JXContext()) {
-        self.context = context
-        do {
-            try context.registry.register(AboutMeModule())
-        } catch {
-            print("AboutMeView: \(error)")
-        }
+    public init() {
     }
-
+    
     public var body: some View {
-        JXView(context: context) { context in
-            try context.new("aboutme.ContentView")
+        JXView { context in
+            try context.registry.register(AboutMeModule())
+            return try context.new("aboutme.ContentView")
         }
     }
 }

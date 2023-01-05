@@ -16,9 +16,7 @@ public struct AboutMeModule: JXModule {
     public func register(with registry: JXRegistry) throws {
         try registry.register(JXSwiftUI())
         try registry.registerBridge(for: Info.self, namespace: namespace)
-        if let localURL = Self.localURL {
-            try registry.registerModuleScript(resource: "/ContentView.js", root: localURL, namespace: namespace)
-        }
+        try registry.registerModuleScript(resource: "/ContentView.js", root: Self.localURL!, namespace: namespace)
     }
 
     public func initialize(in context: JXContext) throws {
