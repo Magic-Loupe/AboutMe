@@ -8,15 +8,13 @@ public extension JXNamespace {
 }
 
 public struct AboutMeModule: JXDynamicModule {
-    public var namespace: JXNamespace = .aboutme
-
-    public static let localURL = URL(string: "jxmodule", relativeTo: Bundle.module.resourceURL)!
-    public static let remoteURL = URL(string: "Sources/AboutMe/jxmodule", relativeTo: URL(string: "https://github.com/Magic-Loupe/AboutMe.git"))!
+    public static let namespace: JXNamespace = .aboutme
+    public static var bundle = Bundle.module
 
     public func register(with registry: JXRegistry) throws {
         try registry.register(JXSwiftUI())
-        try registry.registerBridge(for: Info.self, namespace: namespace)
-        try registry.registerModuleScript(resource: "/ContentView.js", root: Self.localURL, namespace: namespace)
+        try registry.registerBridge(for: Info.self, namespace: Self.namespace)
+        try registry.registerModuleScript(resource: "/ContentView.js", root: Self.localModuleRoot, namespace: Self.namespace)
     }
 
     public func initialize(in context: JXContext) throws {
